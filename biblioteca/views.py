@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Libro, Pedido, UserProfile, Categoria
+from .models import Libro, Pedido, UserProfile, Categoria, Maquina
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .decorators import role_required
@@ -12,7 +12,7 @@ from django.http import JsonResponse
 
 # inicio de todo
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'gymflow/index.html')
 
 # AUTH
 def inicio_sesion(request):
@@ -82,14 +82,17 @@ def home(request):
     libros = Libro.objects.all()
     categorias = Categoria.objects.all()
 
+    maquinas = Maquina.objects.all()
+
     context = {
         'perfil' : perfil,
         'libros' : libros,
         'categorias': categorias,
-        'categoria': None
+        'categoria': None,
+        'maquinas': maquinas,
     }
 
-    return render(request, 'home.html', context)
+    return render(request, 'gymflow/home.html', context)
 
 def home_categoria(request, url):
     perfil = request.session.get('perfil')
@@ -118,7 +121,33 @@ def home_libro(request, codigo):
 
     return render(request, 'libro.html', context)
 
+def home_maquina_historial(request):
+    perfil = request.session.get('perfil')
+    profile = UserProfile.objects.get(user=request.user)
+    maquinas = profile.maquinas.all()
 
+    context = {
+        'perfil' : perfil,
+        'maquinas' : maquinas,
+    }
+
+    return render(request, 'gymflow/historial.html', context)
+
+def home_maquina(request, id):
+    perfil = request.session.get('perfil')
+    maquina = Maquina.objects.get(id=id)
+
+    if request.method == 'POST':
+      profile = UserProfile.objects.get(user=request.user)
+      profile.maquinas.add(maquina)
+      messages.success(request, 'Maquina agregada correctamente.')
+
+    context = {
+        'perfil' : perfil,
+        'maquina' : maquina,
+    }
+
+    return render(request, 'maquina.html', context)
 
 # USUARIO
 

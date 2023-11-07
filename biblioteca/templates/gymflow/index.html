@@ -1,4 +1,4 @@
-{% extends 'layouts/normal/base.html' %}
+{% extends 'layouts/gymflow/base.html' %}
 {% load static %}
 
 {% block css %}
@@ -85,27 +85,28 @@
 {% block contenido %}
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center"><strong>📚 megabiblioteca.cl 📚</strong></a>
-      <a type="button" class="btn btn-sm btn-primary" href="{% url 'login' %}">Iniciar sesión</a>
+      <a href="#" class="navbar-brand d-flex align-items-center"><strong>🏋️‍♂️🏋️‍♀️🏋️ Gymflow.cl 🏋️‍♂️🏋️‍♀️🏋️</strong></a>
+      <a type="button" class="btn btn-sm btn-success" href="{% url 'login' %}">Iniciar sesión</a>
 
       {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> {% endcomment %}
     </div>
   </div>
 
   <main>
-    <header class="bg-warning text-dark text-center py-5">
-      <h1 class="display-4">📚 <strong>Megabiblioteca</strong> 📚</h1>
-      <p class="lead">Tu Destino Literario en Línea</p>
+    <header class="bg-success text-white text-center py-5">
+      <h1 class="display-4">🏋️‍♂️ <strong>Gymflow MAPS</strong> 🏋️‍♂️</h1>
+      <p class="lead">Tu gymnasio en tu hogar y a tu alrededor</p>
+      <a type="button" class="btn btn-dark btn-lg" href="{% url 'login' %}">Iniciar sesión</a>
     </header>
 
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-8">
-          <h2>Descubre un Mundo de Libros</h2>
-          <p>Nuestro extenso catálogo te llevará en un viaje literario sin fin. Desde los bestsellers más recientes hasta los clásicos intemporales, desde novelas emocionantes hasta recursos educativos, Megabiblioteca lo tiene todo. Cada libro es cuidadosamente seleccionado para satisfacer una amplia variedad de intereses y gustos.</p>
+          <h2>Entrenamiento de cuerpo completo con peso corporal</h2>
+          <p>Puedes realizar un eficaz entrenamiento de cuerpo completo utilizando solo tu peso corporal. Ejercicios como las flexiones, las sentadillas, las planchas y las zancadas son ideales para trabajar todos los grupos musculares. Puedes estructurar un circuito combinando estos ejercicios, haciendo de 3 a 5 series de 10-15 repeticiones de cada uno. A medida que progreses, puedes aumentar la intensidad y la variabilidad de los ejercicios.</p>
         </div>
         <div class="col-md-4">
-          <img src="{% static 'img/pexels-eneida-nieves-1222551.jpg' %}" alt="Librería" class="img-fluid rounded" />
+          <img src="{% static 'img/gymflow/gymhome1.jpeg' %}" alt="Librería" class="img-fluid rounded" />
         </div>
       </div>
     </div>
@@ -113,11 +114,11 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-4">
-          <img src="{% static 'img/pexels-malte-luk-1848924.jpg' %}" alt="Comodidad" class="img-fluid rounded" />
+          <img src="{% static 'img/gymflow/gymhome1.jpg' %}" alt="Comodidad" class="img-fluid rounded" />
         </div>
         <div class="col-md-8">
-          <h2>Comodidad en Tus Manos</h2>
-          <p>En Megabiblioteca, creemos en la comodidad. Puedes explorar y comprar libros en línea desde la comodidad de tu hogar o desde cualquier lugar en el que te encuentres. Ofrecemos libros en formato digital y físico, para que puedas elegir cómo prefieres disfrutar de tus lecturas.</p>
+          <h2>Yoga y estiramientos</h2>
+          <p>El yoga es una excelente forma de ejercicio que puedes realizar desde casa. Ayuda a mejorar la flexibilidad, la fuerza, la relajación y la concentración. Puedes encontrar numerosas clases de yoga en línea que se adaptan a tu nivel, desde principiante hasta avanzado. Además, dedicar tiempo a estiramientos regulares es fundamental para mantener la movilidad y prevenir lesiones. Puedes seguir rutinas de estiramientos simples para aliviar la tensión y mejorar la postura.</p>
         </div>
       </div>
     </div>

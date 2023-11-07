@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from ..models import Libro, Pedido, UserProfile, Categoria
+from ..models import Libro, Pedido, UserProfile, Categoria, Maquina
 from django.contrib.auth.models import User
 
 # RANDOM DATA
@@ -30,6 +30,7 @@ def data(request):
     Categoria.objects.all().delete()
     Libro.objects.all().delete()
     Pedido.objects.all().delete()
+    Maquina.objects.all().delete()
 
     # crea 2 usuarios
     user = get_user_model().objects.create_user(
@@ -88,6 +89,8 @@ def data(request):
     ]
 
 
+
+
     for _ in range(20):
         lib = array_libros[random.randint(0, 19)]
         # nombre_libro = fake.sentence()
@@ -124,4 +127,70 @@ def data(request):
             estado=estado_pedido,
         )
 
+
+    maquinas = [
+    {
+        'nombre': 'Cinta de correr',
+        'descripcion': 'Máquina para correr o caminar en sitio. Ideal para ejercicios cardiovasculares.',
+        'tipo': 'Cardio',
+    },
+    {
+        'nombre': 'Máquina de pesas (Banco de press de banca)',
+        'descripcion': 'Equipo para entrenamiento de fuerza con pesas, enfocado en el pecho y brazos.',
+        'tipo': 'Fuerza',
+    },
+    {
+        'nombre': 'Bicicleta estática',
+        'descripcion': 'Máquina para hacer ejercicio en bicicleta en casa. Beneficia la resistencia cardiovascular.',
+        'tipo': 'Cardio',
+    },
+    {
+        'nombre': 'Máquina de remo',
+        'descripcion': 'Simulador de remo para ejercitar el cuerpo entero, combina cardio y fuerza.',
+        'tipo': 'Cardio y Fuerza',
+    },
+    {
+        'nombre': 'Elíptica',
+        'descripcion': 'Máquina que combina movimiento de marcha y escalada, excelente para el cardio y bajo impacto.',
+        'tipo': 'Cardio',
+    },
+    {
+        'nombre': 'Máquina de poleas (Lat pulldown)',
+        'descripcion': 'Para ejercicios de espalda y brazos. Ayuda a desarrollar la fuerza en la espalda superior.',
+        'tipo': 'Fuerza',
+    },
+    {
+        'nombre': 'Máquina Smith',
+        'descripcion': 'Equipo de entrenamiento de fuerza que utiliza una barra guiada. Bueno para el desarrollo muscular.',
+        'tipo': 'Fuerza',
+    },
+    {
+        'nombre': 'Máquina de abdominales',
+        'descripcion': 'Diseñada para ejercitar los músculos abdominales y mejorar la fuerza central.',
+        'tipo': 'Fuerza',
+    },
+    {
+        'nombre': 'Máquina de escalera (StairMaster)',
+        'descripcion': 'Simula el ascenso de escaleras, proporcionando un excelente ejercicio cardiovascular.',
+        'tipo': 'Cardio',
+    },
+    {
+        'nombre': 'Máquina de prensa de piernas',
+        'descripcion': 'Equipo para fortalecer las piernas y los glúteos, esencial en el entrenamiento de piernas.',
+        'tipo': 'Fuerza',
+    },
+]
+
+
+    images = [
+      '1.jpg' , '2.jpeg', '3.jpg', '5.jpeg', '6.jpg'
+    ]
+    for maquina_info in maquinas:
+      nombre = maquina_info['nombre']
+      descripcion = maquina_info['descripcion']
+      tipo = maquina_info['tipo']
+      # Seleccionar una imagen al azar de la lista
+      img = 'img/gymflow/' + random.choice(images)
+      maquina = Maquina(nombre=nombre, descripcion=descripcion, img=img, tipo=tipo)
+      maquina.save()
     return redirect('index')

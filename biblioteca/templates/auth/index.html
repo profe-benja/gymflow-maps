@@ -4,7 +4,7 @@
 {% block css %}
     <style>
         body {
-            background-image: url("{% static 'img/biblioteca.jpeg' %}");
+            background-image: url("{% static 'img/gymflow/gymhome1.jpeg' %}");
             background-size: cover; /* Para que la imagen cubra todo el fondo */
             background-repeat: no-repeat; /* Evita que la imagen se repita */
         }
@@ -19,7 +19,7 @@
                 <div class="card-body">
                 <p class="fw-light text-center">
                     Iniciar Sesión <br>
-                    <strong>📚 megabiblioteca.cl 📚</strong>
+                    <strong>🏋️‍♂️ <strong>Gymflow MAPS</strong> 🏋️‍♂️</strong>
                 </p>
                 <form action="{% url 'login' %}" method="POST">
                     {% csrf_token %}
@@ -44,9 +44,9 @@
                         <input type="password" class="form-control" name="pass" id="pass" required>
                         <small class="text-danger" id="pass-error"></small>
                     </div>
-            
+
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-warning text-dark"><strong>INICIAR SESIÓN</strong></button>
+                        <button type="submit" class="btn btn-success text-white"><strong>INICIAR SESIÓN</strong></button>
 
                         <a href="{% url 'registrar' %}" class="btn btn-dark mt-3"><strong>Registar usuario</strong></a>
 
@@ -59,4 +59,3 @@
     </div>
 </div>
 {% endblock %}
-    
