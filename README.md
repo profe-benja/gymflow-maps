@@ -1,6 +1,6 @@
-# MEGABIBLIOTECA
+# GYMFLOW MAPS
 
-Solicita libros
+gym en tu casa
 
 ## Requisitos de Instalación
 
@@ -16,7 +16,7 @@ Sigue estos pasos para configurar el entorno de desarrollo:
 1. Clona el repositorio desde GitHub:
 
 ```bash
-git clone https://github.com/profe-benja/megabiblioteca-django
+git clone https://github.com/profe-benja/gymflow-maps
 ```
 
 2. Instala las dependencias del proyecto desde el archivo `requirements.txt`:
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-4. Crea un superusuario para acceder al panel de administración (sigue las instrucciones en la consola):
+4. (no es necesario) Crea un superusuario para acceder al panel de administración (sigue las instrucciones en la consola):
 
 ```bash
 python manage.py createsuperuser
@@ -64,15 +64,11 @@ pip freeze > requirements.txt
 ```bash
 Django==4.2.3
 
-cx-Oracle==8.3.0
-
 django-cors-headers==4.2.0
 
 djangorestframework==3.14.0
 
 Faker==18.10.1
-
-oracledb==1.3.2
 
 Pillow==10.0.0
 
